@@ -13,10 +13,10 @@ const useMediaQuery = (query) => {
         const listeners = () => setMatches(media.matches);
 
         window.addEventListener('resize', listeners)
-        return () => window.addEventListener('resize', listeners);
+        return () => window.removeEventListener('resize', listeners);
     }, [matches, query]);
 
     return matches;
 }
 
-export default useMediaQuery
+export default useMediaQuery;
