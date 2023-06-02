@@ -6,7 +6,7 @@ const NewFile = () => {
 
     return (
         <Box>
-            <Typography>Im a boy</Typography>
+            <Typography color={palette.primary[500]} variant='h2'>Im a girl</Typography>
         </Box>
     )
 }

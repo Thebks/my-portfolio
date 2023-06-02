@@ -1,23 +1,22 @@
-import { Box, Typography, useTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import { styled } from "@mui/system";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { useMemo } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createTheme } from '@mui/material/styles';
 import { themeSettings } from "./theme";
-import NewFile from "./components/newfile";
+import Navbar from "./scenes/Navbar"
 
 
 const App = () => {
   const theme = useMemo(() => createTheme(themeSettings), []);
 
   return (
-    <div className="App">
+    <div className="app">
       <BrowserRouter>
+        <CssBaseline />
         <ThemeProvider theme={theme}>
           <Routes>
-            <Route path="/" element={<NewFile />} />
+            <Route path="/" element={<Navbar />} />
           </Routes>
-          {/* <Typography> Iam a boy</Typography> */}
         </ThemeProvider>
       </BrowserRouter>
     </div>
