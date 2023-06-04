@@ -108,6 +108,9 @@ export const themeSettings = {
             ...tokens.yellow,
             main: tokens.yellow[500],
         },
+        green: {
+            ...tokens.green,
+        },
         background: {
             default: tokens.background.main,
             light: tokens.background.light,
