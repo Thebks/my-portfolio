@@ -11,16 +11,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = () => {
     const dispatch = useDispatch();                   //Redux method
-    const activeLink = useSelector((state) => state.menuActiveLink);
-
-    const [isMenuToggled, setIsMenuToggled] = useState('/');           //useState hook
+    const activeLinkCircle = useSelector((state) => state.menuActiveLink);
     const { palette } = useTheme();
 
-    const handleButtonClick = () => { }
 
-    const handleClick = (to) => {
-        setIsMenuToggled(to)
-    }
+    const handleButtonClick = () => console.log("you clicked me");
 
     const handleClickRedux = (to) => {
         dispatch(setMenuActive(to));
@@ -41,10 +36,12 @@ const Navbar = () => {
             <Toolbar sx={{ p: 0, height: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
                 <Box sx={{ "&:hover": { color: palette.primary[900] }, display: 'flex', gap: '16px' }}>
-                    {/* I used react buildin useState hook to manage the state */}
+
                     {/* Home */}
-                    <Link to="/"
-                        style={{
+                    <Box
+                        component={Link}
+                        to="/"
+                        sx={{
                             color: 'inherit',
                             display: 'flex',
                             justifyContent: 'center',
@@ -54,24 +51,27 @@ const Navbar = () => {
                             padding: '16px 20px',
                             width: '80px',
                             height: '49px',
-                            borderRadius: '30px',             //TESTING
-                            border: '1px solid #000000', //TESTING
-                            backgroundColor: '#FFFFFF', //TESTING
-                            // borderRadius: isMenuToggled === '/' ? '30px' : '0',
-                            // border: isMenuToggled === '/' ? '1px solid' + palette.black[500] : 'none',
-                            // backgroundColor: isMenuToggled === '/' ? '#FFFFFF' : 'inherit',
-                            // textDecoration: isMenuToggled === '/' ? 'underline' : 'none',
+                            borderRadius: activeLinkCircle === '/' ? '30px' : '0',
+                            border: activeLinkCircle === '/' ? `1px solid ${palette.black[500]}` : 'none',
+                            backgroundColor: activeLinkCircle === '/' ? '#FFFFFF' : 'inherit',
+                            '&:hover': {
+                                border: '3px solid #000000',
+                                boxShadow: '3px 4px 0px 2px #000000',
+                                borderRadius: '30px',
+                                background: '#FFFFFF',
+                                textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                            },
                         }}
-                        onMouseEnter={(e) => (e.target.style.color = palette.green[500])}
-                        onMouseLeave={(e) => (e.target.style.color = 'inherit')}
-                        onClick={() => handleClick('/')}
+                        onClick={() => handleClickRedux('/')}
                     >
                         Home
-                    </Link>
+                    </Box>
 
                     {/* features */}
-                    <Link to="/features"
-                        style={{
+                    <Box
+                        component={Link}
+                        to="/features"
+                        sx={{
                             color: 'inherit',
                             display: 'flex',
                             justifyContent: 'center',
@@ -81,24 +81,27 @@ const Navbar = () => {
                             padding: '16px 20px',
                             width: '80px',
                             height: '49px',
-                            borderRadius: '30px',             //TESTING
-                            border: '1px solid #000000', //TESTING
-                            backgroundColor: '#FFFFFF', //TESTING
-                            // borderRadius: isMenuToggled === '/features' ? '30px' : '0',
-                            // border: isMenuToggled === '/features' ? '1px solid' + palette.black[500] : 'none',
-                            // backgroundColor: isMenuToggled === '/features' ? '#FFFFFF' : 'inherit',
+                            borderRadius: activeLinkCircle === '/features' ? '30px' : '0',
+                            border: activeLinkCircle === '/features' ? `1px solid ${palette.black[500]}` : 'none',
+                            backgroundColor: activeLinkCircle === '/features' ? '#FFFFFF' : 'inherit',
+                            '&:hover': {
+                                border: '3px solid #000000',
+                                boxShadow: '3px 4px 0px 2px #000000',
+                                borderRadius: '30px',
+                                background: '#FFFFFF',
+                                textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                            },
                         }}
-                        onMouseEnter={(e) => (e.target.style.color = palette.green[500])}
-                        onMouseLeave={(e) => (e.target.style.color = 'inherit')}
-                        onClick={() => handleClick('/features')} >
+                        onClick={() => handleClickRedux('/features')}
+                    >
                         Features
-                    </Link>
-                    {/* I used react buildin useState hook to manage the state */}
+                    </Box>
 
-                    {/* I have used the reduxtoolkit method  here */}
                     {/* Contact */}
-                    <Link to="/contact"
-                        style={{
+                    <Box
+                        component={Link}
+                        to="/contact"
+                        sx={{
                             color: 'inherit',
                             display: 'flex',
                             justifyContent: 'center',
@@ -108,22 +111,27 @@ const Navbar = () => {
                             padding: '16px 20px',
                             width: '80px',
                             height: '49px',
-                            borderRadius: '30px',             //TESTING
-                            border: '1px solid #000000', //TESTING
-                            backgroundColor: '#FFFFFF', //TESTING
-                            // borderRadius: activeLink === '/contact' ? '30px' : '0',
-                            // border: activeLink === '/contact' ? '1px solid' + palette.black[500] : 'none',
-                            // backgroundColor: activeLink === '/contact' ? '#FFFFFF' : 'inherit',
+                            borderRadius: activeLinkCircle === '/contact' ? '30px' : '0',
+                            border: activeLinkCircle === '/contact' ? `1px solid ${palette.black[500]}` : 'none',
+                            backgroundColor: activeLinkCircle === '/contact' ? '#FFFFFF' : 'inherit',
+                            '&:hover': {
+                                border: '3px solid #000000',
+                                boxShadow: '3px 4px 0px 2px #000000',
+                                borderRadius: '30px',
+                                background: '#FFFFFF',
+                                textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                            },
                         }}
-                        onMouseEnter={(e) => (e.target.style.color = palette.green[500])}
-                        onMouseLeave={(e) => (e.target.style.color = 'inherit')}
-                        onClick={() => handleClickRedux('/contact')} >
+                        onClick={() => handleClickRedux('/contact')}
+                    >
                         Contact
-                    </Link>
+                    </Box>
 
                     {/* Projects */}
-                    <Link to="/projects"
-                        style={{
+                    <Box
+                        component={Link}
+                        to="/projects"
+                        sx={{
                             color: 'inherit',
                             display: 'flex',
                             justifyContent: 'center',
@@ -133,38 +141,40 @@ const Navbar = () => {
                             padding: '16px 20px',
                             width: '80px',
                             height: '49px',
-                            borderRadius: '30px',             //TESTING
-                            border: '1px solid #000000', //TESTING
-                            backgroundColor: '#FFFFFF', //TESTING
-                            // borderRadius: activeLink === '/projects' ? '30px' : '0',
-                            // border: activeLink === '/projects' ? '1px solid' + palette.black[500] : 'none',
-                            // backgroundColor: activeLink === '/projects' ? '#FFFFFF' : 'inherit',
+                            borderRadius: activeLinkCircle === '/projects' ? '30px' : '0',
+                            border: activeLinkCircle === '/projects' ? `1px solid ${palette.black[500]}` : 'none',
+                            backgroundColor: activeLinkCircle === '/projects' ? '#FFFFFF' : 'inherit',
+                            '&:hover': {
+                                border: '3px solid #000000',
+                                boxShadow: '3px 4px 0px 2px #000000',
+                                borderRadius: '30px',
+                                background: '#FFFFFF',
+                                textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                            },
                         }}
-                        onMouseEnter={(e) => (e.target.style.color = palette.green[500])}
-                        onMouseLeave={(e) => (e.target.style.color = 'inherit')}
                         onClick={() => handleClickRedux('/projects')}
                     >
                         Projects
-                    </Link>
+                    </Box>
                     {/* I have used the reduxtoolkit method  here */}
                 </Box>
                 <Button
                     onClick={handleButtonClick}
                     text="Login"
                     sx={{
-                        backgroundColor: 'black',
+                        backgroundColor: 'rgba(0, 0, 0, 1)',
                         height: "100%",
                         width: '195px',
                         variant: "outlined",
                         borderRadius: 0,
+                        color: 'white',
                         "&:hover": {
-                            backgroundColor: "black"
+                            backgroundColor: 'rgba(0, 0, 0, 1)'
                         },
-
                     }}
                 />
             </Toolbar>
-        </AppBar >
+        </AppBar>
     )
 }
 
