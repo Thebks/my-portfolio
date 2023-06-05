@@ -111,6 +111,9 @@ export const themeSettings = {
         green: {
             ...tokens.green,
         },
+        black: {
+            ...tokens.black,
+        },
         background: {
             default: tokens.background.main,
             light: tokens.background.light,
