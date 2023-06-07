@@ -13,7 +13,7 @@ const Navbar = () => {
     const dispatch = useDispatch();                   //Redux method
     const activeLinkCircle = useSelector((state) => state.menuActiveLink);
     const { palette } = useTheme();
-
+    const isAboveSmallScreen = useMediaQuery("(min-width:768px)");
 
     const handleButtonClick = () => console.log("you clicked me");
 
@@ -169,7 +169,9 @@ const Navbar = () => {
                         borderRadius: 0,
                         color: 'white',
                         "&:hover": {
-                            backgroundColor: 'rgba(0, 0, 0, 1)'
+                            backgroundColor: 'rgba(0, 0, 0, 1)',
+                            textShadow: '0px 2px 3px rgba(0, 0, 0, 0.25)',
+                            boxShadow: '3px 4px 0px 2px #000000',
                         },
                     }}
                 />
@@ -179,3 +181,5 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+//backgroundColor: 'rgba(0, 0, 0, 1)',
