@@ -3,7 +3,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import useMediaQuery from "../../hooks/useMediaQuery"
 import { AppBar, Box, Toolbar, Typography, makeStyles, useTheme } from '@mui/material';
 import Button from '../../components/Button';
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom';
 import { setMenuActive } from './menuActiveLinkSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
