@@ -10,9 +10,10 @@ import MenuIcon from '@mui/icons-material/Menu'
 
 const Navbars = () => {
 
-    const dispatch = useDispatch();                   //Redux method
+    const dispatch = useDispatch();
     const activeLinkCircle = useSelector((state) => state.menuActiveLink);
     const { palette } = useTheme();
+    const [isMenuToggled, setIsMenuToggled] = useState(false);
     const isAboveSmallScreen = useMediaQuery("(min-width:768px)");
 
     const handleButtonClick = () => console.log("you clicked me");
@@ -22,14 +23,12 @@ const Navbars = () => {
         dispatch(setMenuActive(to));
     }
 
+    const handleMenuToggle = () => {
+        setIsMenuToggled(!isMenuToggled);
+    };
 
     return (
         <AppBar sx={{ zIndex: 40, position: 'static', top: 0, height: '80px', marginTop: '50px', borderBottom: '2px solid black', borderTop: '2px solid black', }}>
-            {/* <Box sx={{ display: 'absolute', position: 'absolute' }}>
-                <Typography variant="h2" component="h4" sx={{ fontFamily: 'Playfair Display', fontSize: '3xl', fontWeight: 'bold' }}>
-                    Thebks
-                </Typography>
-            </Box> */}
             <Toolbar sx={{ p: 0, height: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 {isAboveSmallScreen ? (
                     <Box sx={{ display: 'flex', gap: '16px', alignItems: "center" }}>
@@ -152,11 +151,25 @@ const Navbars = () => {
                             Projects
                         </Box>
                     </Box>
-                ) : (<Box>
-                    <IconButton edge='start' color="inherit" aria-label="menu" sx={{ marginLeft: '8px' }}>
-                        <MenuIcon />
-                    </IconButton>
-                </Box>)}
+                ) : (
+                    <Box>
+                        <IconButton edge='start' color="inherit" aria-label="menu" sx={{ marginLeft: '8px' }}>
+                            <MenuIcon onClick={isMenuToggled ? handleMenuToggle : null} />
+                        </IconButton>
+                        {isAboveSmallScreen && isMenuToggled && (
+                            <Box sx={{ position: 'fixed', right: 0, bottom: 0, height: '100%', backgroundColor: palette.green[500], width: '300px' }}>
+                                <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 12 }}>
+                                    <MenuIcon onClick={handleMenuToggle} />
+                                </Box>
+
+                                {/* Menu Items */}
+
+
+                            </Box>
+                        )}
+                    </Box>
+                )}
+
                 <Button
                     onClick={handleButtonClick}
                     text="Login"
