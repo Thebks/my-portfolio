@@ -12,15 +12,7 @@ const menuActiveLinkSlice = createSlice({
     }
 });
 
-// const isMenuToggledSlice = createSlice({
-//     name:'isMenuToggled',
-//     initialState:'false',
-//     reducers:{
-//         setIsMenuToggled:(state, action) => action.payload,
-//     }
-// })
 
 // console.log(menuToggleSlice);
-export const { setMenuActive, setIsMenuToggled } = menuActiveLinkSlice.actions;
+export const { setMenuActive } = menuActiveLinkSlice.actions;
 export default menuActiveLinkSlice.reducer;
-// export default isMenuToggledSlice.reducer;
