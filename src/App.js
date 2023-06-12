@@ -6,7 +6,6 @@ import { themeSettings } from "./theme";
 import Navbar from "./scenes/global/Navbar"
 import Home from "./scenes/home";
 import Features from "./scenes/features";
-import Navbars from "./scenes/global/Navbars";
 
 
 const App = () => {
@@ -18,8 +17,7 @@ const App = () => {
         <CssBaseline />
         <ThemeProvider theme={theme}>
           <main className="content">
-            <Navbars />
-            {/* <Navbar /> */}
+            <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/features" element={<Features />} />
