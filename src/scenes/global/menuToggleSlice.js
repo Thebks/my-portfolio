@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const isMenuToggledSlice = createSlice({
-    name: 'isMenuToggled',
+const menuToggleSlice = createSlice({
+    name: 'menuToggled',
     initialState: 'false',
     reducers: {
-        setIsMenuToggled: (state, action) => action.payload,
+        setMenuToggle: (state, action) => action.payload,
     }
 })
 
-export const { setIsMenuToggled } = isMenuToggledSlice.actions;
-export default isMenuToggledSlice.reducer;
+export const { setMenuToggle } = menuToggleSlice.actions;
+export default menuToggleSlice.reducer;

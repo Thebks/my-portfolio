@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// const initialState = {
-//     menuActive: '',
-// }
+const initialState = {
+    menuActive: '/',
+    menuToggled: false
+}
 
 const menuActiveLinkSlice = createSlice({
     name: 'menuActiveLink',

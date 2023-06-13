@@ -7,7 +7,7 @@ const Home = () => {
 
     return (
         <Box>
-            <Grid container spacing={2} direction="row" justifyContent="space-between" alignItems="center">
+            {/* <Grid container spacing={2} direction="row" justifyContent="space-between" alignItems="center">
                 <Grid item xs={12}>
                     <Grid item xs={6}>
                         <Box>
@@ -21,7 +21,7 @@ const Home = () => {
                         <Typography>wiuvbiwubviwubvriwueri</Typography>
                     </Grid>
                 </Grid>
-            </Grid>
+            </Grid> */}
         </Box>
     )
 }
