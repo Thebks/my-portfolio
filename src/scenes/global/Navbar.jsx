@@ -4,8 +4,7 @@ import useMediaQuery from "../../hooks/useMediaQuery"
 import { AppBar, Box, Container, Toolbar, Typography, makeStyles, useTheme } from '@mui/material';
 import Button from '../../components/Button';
 import { Link, NavLink } from 'react-router-dom'
-import { setMenuActive } from './menuActiveLinkSlice';
-import { setMenuToggle } from './menuToggleSlice';
+import { setMenuActive, toggleMenu } from './menuActiveLinkSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import MenuIcon from '@mui/icons-material/Menu'
 import IconButton from '@mui/material/IconButton';
@@ -14,25 +13,21 @@ import CloseIcon from '@mui/icons-material/Close';
 const Navbar = () => {
 
     const dispatch = useDispatch();
-    const activeLinkCircle = useSelector((state) => state.menuActiveLink);
-    const isMenuToggled = useSelector((state) => state.menuToggle);
+    const { menuActive, menuToggled } = useSelector((state) => state.menuActiveLink);
     const { palette } = useTheme();
     const isAboveSmallScreen = useMediaQuery("(min-width:768px)");
 
-
-    const handleButtonClick = () => console.log("you clicked me");
 
     const handleClickRedux = (to) => {
         dispatch(setMenuActive(to));
     }
 
     const smallScreenMenuToggle = () => {
-        dispatch(setMenuToggle(!isMenuToggled));
+        dispatch(toggleMenu());
     };
 
 
     return (
-
         <>
             {isAboveSmallScreen ? (
                 <>
@@ -41,7 +36,6 @@ const Navbar = () => {
                     </Typography>
                     <AppBar sx={{ zIndex: 40, position: 'static', top: 0, height: '80px', marginTop: '20px', borderBottom: '2px solid black', borderTop: '2px solid black', }}>
                         <Toolbar sx={{ p: 0, height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: 'auto', marginRight: 'auto' }}>
-
                             <Box sx={{ display: 'flex', gap: '16px', alignItems: "center" }}>
                                 {/* Home */}
                                 <Box
@@ -57,9 +51,9 @@ const Navbar = () => {
                                         padding: '16px 20px',
                                         width: '80px',
                                         height: '49px',
-                                        borderRadius: activeLinkCircle === '/' ? '30px' : '0',
-                                        border: activeLinkCircle === '/' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: activeLinkCircle === '/' ? '#FFFFFF' : 'inherit',
+                                        borderRadius: menuActive === '/' ? '30px' : '0',
+                                        border: menuActive === '/' ? `1px solid ${palette.black[500]}` : 'none',
+                                        backgroundColor: menuActive === '/' ? '#FFFFFF' : 'inherit',
                                         '&:hover': {
                                             border: '3px solid #000000',
                                             boxShadow: '3px 4px 0px 2px #000000',
@@ -86,9 +80,9 @@ const Navbar = () => {
                                         padding: '16px 20px',
                                         width: '80px',
                                         height: '49px',
-                                        borderRadius: activeLinkCircle === '/features' ? '30px' : '0',
-                                        border: activeLinkCircle === '/features' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: activeLinkCircle === '/features' ? '#FFFFFF' : 'inherit',
+                                        borderRadius: menuActive === '/features' ? '30px' : '0',
+                                        border: menuActive === '/features' ? `1px solid ${palette.black[500]}` : 'none',
+                                        backgroundColor: menuActive === '/features' ? '#FFFFFF' : 'inherit',
                                         '&:hover': {
                                             border: '3px solid #000000',
                                             boxShadow: '3px 4px 0px 2px #000000',
@@ -101,7 +95,6 @@ const Navbar = () => {
                                 >
                                     Features
                                 </Box>
-
                                 {/* Contact */}
                                 <Box
                                     component={Link}
@@ -116,9 +109,9 @@ const Navbar = () => {
                                         padding: '16px 20px',
                                         width: '80px',
                                         height: '49px',
-                                        borderRadius: activeLinkCircle === '/contact' ? '30px' : '0',
-                                        border: activeLinkCircle === '/contact' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: activeLinkCircle === '/contact' ? '#FFFFFF' : 'inherit',
+                                        borderRadius: menuActive === '/contact' ? '30px' : '0',
+                                        border: menuActive === '/contact' ? `1px solid ${palette.black[500]}` : 'none',
+                                        backgroundColor: menuActive === '/contact' ? '#FFFFFF' : 'inherit',
                                         '&:hover': {
                                             border: '3px solid #000000',
                                             boxShadow: '3px 4px 0px 2px #000000',
@@ -131,7 +124,6 @@ const Navbar = () => {
                                 >
                                     Contact
                                 </Box>
-
                                 {/* Projects */}
                                 <Box
                                     component={Link}
@@ -146,9 +138,9 @@ const Navbar = () => {
                                         padding: '16px 20px',
                                         width: '80px',
                                         height: '49px',
-                                        borderRadius: activeLinkCircle === '/projects' ? '30px' : '0',
-                                        border: activeLinkCircle === '/projects' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: activeLinkCircle === '/projects' ? '#FFFFFF' : 'inherit',
+                                        borderRadius: menuActive === '/projects' ? '30px' : '0',
+                                        border: menuActive === '/projects' ? `1px solid ${palette.black[500]}` : 'none',
+                                        backgroundColor: menuActive === '/projects' ? '#FFFFFF' : 'inherit',
                                         '&:hover': {
                                             border: '3px solid #000000',
                                             boxShadow: '3px 4px 0px 2px #000000',
@@ -202,7 +194,7 @@ const Navbar = () => {
             }
             {/* MOBILE VIEW */}
             {
-                !isAboveSmallScreen && isMenuToggled && (
+                !isAboveSmallScreen && menuToggled && (
                     <>
                         <Box sx={{
                             position: 'fixed',
@@ -244,9 +236,9 @@ const Navbar = () => {
                                         padding: '16px 20px',
                                         width: '80px',
                                         height: '49px',
-                                        borderRadius: activeLinkCircle === '/' ? '30px' : '0',
-                                        border: activeLinkCircle === '/' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: activeLinkCircle === '/' ? '#FFFFFF' : 'inherit',
+                                        borderRadius: menuActive === '/' ? '30px' : '0',
+                                        border: menuActive === '/' ? `1px solid ${palette.black[500]}` : 'none',
+                                        backgroundColor: menuActive === '/' ? '#FFFFFF' : 'inherit',
                                         '&:hover': {
                                             border: '3px solid #000000',
                                             boxShadow: '3px 4px 0px 2px #000000',
@@ -273,9 +265,9 @@ const Navbar = () => {
                                         padding: '16px 20px',
                                         width: '80px',
                                         height: '49px',
-                                        borderRadius: activeLinkCircle === '/features' ? '30px' : '0',
-                                        border: activeLinkCircle === '/features' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: activeLinkCircle === '/features' ? '#FFFFFF' : 'inherit',
+                                        borderRadius: menuActive === '/features' ? '30px' : '0',
+                                        border: menuActive === '/features' ? `1px solid ${palette.black[500]}` : 'none',
+                                        backgroundColor: menuActive === '/features' ? '#FFFFFF' : 'inherit',
                                         '&:hover': {
                                             border: '3px solid #000000',
                                             boxShadow: '3px 4px 0px 2px #000000',
@@ -302,9 +294,9 @@ const Navbar = () => {
                                         padding: '16px 20px',
                                         width: '80px',
                                         height: '49px',
-                                        borderRadius: activeLinkCircle === '/contact' ? '30px' : '0',
-                                        border: activeLinkCircle === '/contact' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: activeLinkCircle === '/contact' ? '#FFFFFF' : 'inherit',
+                                        borderRadius: menuActive === '/contact' ? '30px' : '0',
+                                        border: menuActive === '/contact' ? `1px solid ${palette.black[500]}` : 'none',
+                                        backgroundColor: menuActive === '/contact' ? '#FFFFFF' : 'inherit',
                                         '&:hover': {
                                             border: '3px solid #000000',
                                             boxShadow: '3px 4px 0px 2px #000000',
@@ -331,9 +323,9 @@ const Navbar = () => {
                                         padding: '16px 20px',
                                         width: '80px',
                                         height: '49px',
-                                        borderRadius: activeLinkCircle === '/projects' ? '30px' : '0',
-                                        border: activeLinkCircle === '/projects' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: activeLinkCircle === '/projects' ? '#FFFFFF' : 'inherit',
+                                        borderRadius: menuActive === '/projects' ? '30px' : '0',
+                                        border: menuActive === '/projects' ? `1px solid ${palette.black[500]}` : 'none',
+                                        backgroundColor: menuActive === '/projects' ? '#FFFFFF' : 'inherit',
                                         '&:hover': {
                                             border: '3px solid #000000',
                                             boxShadow: '3px 4px 0px 2px #000000',

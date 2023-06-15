@@ -7,13 +7,19 @@ const initialState = {
 
 const menuActiveLinkSlice = createSlice({
     name: 'menuActiveLink',
-    initialState: '/',
+    initialState: initialState,
     reducers: {
-        setMenuActive: (state, action) => action.payload,
-    }
+        setMenuActive: (state, action) => {
+            state.menuActive = action.payload;
+        },
+        toggleMenu: (state) => {
+            state.menuToggled = !state.menuToggled;
+        },
+    },
 });
 
-
-// console.log(menuToggleSlice);
-export const { setMenuActive } = menuActiveLinkSlice.actions;
+export const { setMenuActive, toggleMenu } = menuActiveLinkSlice.actions;
 export default menuActiveLinkSlice.reducer;
+
+
+// menuActiveLinkSlice
