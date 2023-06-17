@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import useMediaQuery from "../../hooks/useMediaQuery"
-import { AppBar, Box, Container, Toolbar, Typography, makeStyles, useTheme } from '@mui/material';
+import { AppBar, Box, Container, Toolbar, Typography, useTheme } from '@mui/material';
 import Button from '../../components/Button';
 import { Link, NavLink } from 'react-router-dom'
 import { setMenuActive, toggleMenu } from './menuActiveLinkSlice';
@@ -154,7 +154,6 @@ const Navbar = () => {
                                     Projects
                                 </Box>
                             </Box>
-
                         </Toolbar>
                     </AppBar>
                 </>
@@ -193,155 +192,154 @@ const Navbar = () => {
             )
             }
             {/* MOBILE VIEW */}
-            {
-                !isAboveSmallScreen && menuToggled && (
-                    <>
+            {!isAboveSmallScreen && menuToggled && (
+                <>
+                    <Box sx={{
+                        position: 'fixed',
+                        bottom: 0,
+                        right: 0,
+                        height: '100%',
+                        backgroundColor: palette.primary[500],
+                        width: '300px',
+                        borderTop: '2px solid black',
+                    }}
+                    >
+                        <Box sx={{ marginTop: 'auto', position: 'absolute', top: 0, right: 0, }}>
+                            <IconButton sx={{ p: '12px' }} onClick={smallScreenMenuToggle} >
+                                <CloseIcon />
+                            </IconButton>
+                        </Box>
+                        {/* Menu Items */}
+                        {/* Home */}
                         <Box sx={{
-                            position: 'fixed',
-                            bottom: 0,
-                            right: 0,
-                            height: '100%',
-                            backgroundColor: palette.primary[500],
-                            width: '300px',
-                            borderTop: '2px solid black',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '10px',
+                            marginLeft: '35%',
+                            fontSize: '1rem',
+                            color: palette.black[500],
+                            marginTop: '50%',
                         }}
                         >
-                            <Box sx={{ marginTop: 'auto', position: 'absolute', top: 0, right: 0, }}>
-                                <IconButton sx={{ p: '12px' }} onClick={smallScreenMenuToggle} >
-                                    <CloseIcon />
-                                </IconButton>
-                            </Box>
-                            {/* Menu Items */}
-                            {/* Home */}
-                            <Box sx={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '10px',
-                                marginLeft: '35%',
-                                fontSize: '1rem',
-                                color: palette.black[500],
-                                marginTop: '50%',
-                            }}
+                            <Box
+                                component={Link}
+                                to="/"
+                                sx={{
+                                    color: 'inherit',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    textDecoration: 'none',
+                                    boxSizing: 'border-box',
+                                    padding: '16px 20px',
+                                    width: '80px',
+                                    height: '49px',
+                                    borderRadius: menuActive === '/' ? '30px' : '0',
+                                    border: menuActive === '/' ? `1px solid ${palette.black[500]}` : 'none',
+                                    backgroundColor: menuActive === '/' ? '#FFFFFF' : 'inherit',
+                                    '&:hover': {
+                                        border: '3px solid #000000',
+                                        boxShadow: '3px 4px 0px 2px #000000',
+                                        borderRadius: '30px',
+                                        background: '#FFFFFF',
+                                        textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                                    },
+                                }}
+                                onClick={() => handleClickRedux('/')}
                             >
-                                <Box
-                                    component={Link}
-                                    to="/"
-                                    sx={{
-                                        color: 'inherit',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        textDecoration: 'none',
-                                        boxSizing: 'border-box',
-                                        padding: '16px 20px',
-                                        width: '80px',
-                                        height: '49px',
-                                        borderRadius: menuActive === '/' ? '30px' : '0',
-                                        border: menuActive === '/' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: menuActive === '/' ? '#FFFFFF' : 'inherit',
-                                        '&:hover': {
-                                            border: '3px solid #000000',
-                                            boxShadow: '3px 4px 0px 2px #000000',
-                                            borderRadius: '30px',
-                                            background: '#FFFFFF',
-                                            textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                                        },
-                                    }}
-                                    onClick={() => handleClickRedux('/')}
-                                >
-                                    Home
-                                </Box>
-                                {/* features */}
-                                <Box
-                                    component={Link}
-                                    to="/features"
-                                    sx={{
-                                        color: 'inherit',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        textDecoration: 'none',
-                                        boxSizing: 'border-box',
-                                        padding: '16px 20px',
-                                        width: '80px',
-                                        height: '49px',
-                                        borderRadius: menuActive === '/features' ? '30px' : '0',
-                                        border: menuActive === '/features' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: menuActive === '/features' ? '#FFFFFF' : 'inherit',
-                                        '&:hover': {
-                                            border: '3px solid #000000',
-                                            boxShadow: '3px 4px 0px 2px #000000',
-                                            borderRadius: '30px',
-                                            background: '#FFFFFF',
-                                            textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                                        },
-                                    }}
-                                    onClick={() => handleClickRedux('/features')}
-                                >
-                                    Features
-                                </Box>
-                                {/* Contact */}
-                                <Box
-                                    component={Link}
-                                    to="/contact"
-                                    sx={{
-                                        color: 'inherit',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        textDecoration: 'none',
-                                        boxSizing: 'border-box',
-                                        padding: '16px 20px',
-                                        width: '80px',
-                                        height: '49px',
-                                        borderRadius: menuActive === '/contact' ? '30px' : '0',
-                                        border: menuActive === '/contact' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: menuActive === '/contact' ? '#FFFFFF' : 'inherit',
-                                        '&:hover': {
-                                            border: '3px solid #000000',
-                                            boxShadow: '3px 4px 0px 2px #000000',
-                                            borderRadius: '30px',
-                                            background: '#FFFFFF',
-                                            textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                                        },
-                                    }}
-                                    onClick={() => handleClickRedux('/contact')}
-                                >
-                                    Contact
-                                </Box>
-                                {/* Projects */}
-                                <Box
-                                    component={Link}
-                                    to="/projects"
-                                    sx={{
-                                        color: 'inherit',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        textDecoration: 'none',
-                                        boxSizing: 'border-box',
-                                        padding: '16px 20px',
-                                        width: '80px',
-                                        height: '49px',
-                                        borderRadius: menuActive === '/projects' ? '30px' : '0',
-                                        border: menuActive === '/projects' ? `1px solid ${palette.black[500]}` : 'none',
-                                        backgroundColor: menuActive === '/projects' ? '#FFFFFF' : 'inherit',
-                                        '&:hover': {
-                                            border: '3px solid #000000',
-                                            boxShadow: '3px 4px 0px 2px #000000',
-                                            borderRadius: '30px',
-                                            background: '#FFFFFF',
-                                            textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                                        },
-                                    }}
-                                    onClick={() => handleClickRedux('/projects')}
-                                >
-                                    Projects
-                                </Box>
+                                Home
+                            </Box>
+                            {/* features */}
+                            <Box
+                                component={Link}
+                                to="/features"
+                                sx={{
+                                    color: 'inherit',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    textDecoration: 'none',
+                                    boxSizing: 'border-box',
+                                    padding: '16px 20px',
+                                    width: '80px',
+                                    height: '49px',
+                                    borderRadius: menuActive === '/features' ? '30px' : '0',
+                                    border: menuActive === '/features' ? `1px solid ${palette.black[500]}` : 'none',
+                                    backgroundColor: menuActive === '/features' ? '#FFFFFF' : 'inherit',
+                                    '&:hover': {
+                                        border: '3px solid #000000',
+                                        boxShadow: '3px 4px 0px 2px #000000',
+                                        borderRadius: '30px',
+                                        background: '#FFFFFF',
+                                        textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                                    },
+                                }}
+                                onClick={() => handleClickRedux('/features')}
+                            >
+                                Features
+                            </Box>
+                            {/* Contact */}
+                            <Box
+                                component={Link}
+                                to="/contact"
+                                sx={{
+                                    color: 'inherit',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    textDecoration: 'none',
+                                    boxSizing: 'border-box',
+                                    padding: '16px 20px',
+                                    width: '80px',
+                                    height: '49px',
+                                    borderRadius: menuActive === '/contact' ? '30px' : '0',
+                                    border: menuActive === '/contact' ? `1px solid ${palette.black[500]}` : 'none',
+                                    backgroundColor: menuActive === '/contact' ? '#FFFFFF' : 'inherit',
+                                    '&:hover': {
+                                        border: '3px solid #000000',
+                                        boxShadow: '3px 4px 0px 2px #000000',
+                                        borderRadius: '30px',
+                                        background: '#FFFFFF',
+                                        textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                                    },
+                                }}
+                                onClick={() => handleClickRedux('/contact')}
+                            >
+                                Contact
+                            </Box>
+                            {/* Projects */}
+                            <Box
+                                component={Link}
+                                to="/projects"
+                                sx={{
+                                    color: 'inherit',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    textDecoration: 'none',
+                                    boxSizing: 'border-box',
+                                    padding: '16px 20px',
+                                    width: '80px',
+                                    height: '49px',
+                                    borderRadius: menuActive === '/projects' ? '30px' : '0',
+                                    border: menuActive === '/projects' ? `1px solid ${palette.black[500]}` : 'none',
+                                    backgroundColor: menuActive === '/projects' ? '#FFFFFF' : 'inherit',
+                                    '&:hover': {
+                                        border: '3px solid #000000',
+                                        boxShadow: '3px 4px 0px 2px #000000',
+                                        borderRadius: '30px',
+                                        background: '#FFFFFF',
+                                        textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                                    },
+                                }}
+                                onClick={() => handleClickRedux('/projects')}
+                            >
+                                Projects
                             </Box>
                         </Box>
-                    </>
-                )
+                    </Box>
+                </>
+            )
             }
         </>
     )
