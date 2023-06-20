@@ -1,8 +1,14 @@
+import { Box, Typography } from '@mui/material'
 import React from 'react'
+
 
 const Features = () => {
     return (
-        <div>Features</div>
+        <section>
+            <Box >
+                <Typography>Featuresoowvoinrover</Typography>
+            </Box>
+        </section>
     )
 }
 

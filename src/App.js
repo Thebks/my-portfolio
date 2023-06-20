@@ -1,21 +1,32 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createTheme } from '@mui/material/styles';
 import { themeSettings } from "./theme";
 import Navbar from "./scenes/global/Navbar"
 // import Navbars from "./scenes/global/Navbars"
+// import DotGroup from "./scenes/global/DotGroup"
 import DotGroup from "./scenes/global/DotGroup"
 import Home from "./scenes/home";
 import Features from "./scenes/features";
 import { Box } from "@mui/material";
 import useMediaQuery from "./hooks/useMediaQuery"
+import ScrollToTop from "./components/SmoothScroll";
 
 
 
 const App = () => {
   const theme = useMemo(() => createTheme(themeSettings), []);
-  const isDesktop = useMediaQuery("(min-width: 1060px)");
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+  // const [isTopOfPage, setIsTopOfPage] = useState(true);
+
+  // useEffect(()=>{
+  //   const handleScroll = ()=>{
+
+  //   }
+  // },[])
+
+
 
   return (
     <div className="app">
@@ -23,13 +34,14 @@ const App = () => {
         <CssBaseline />
         <ThemeProvider theme={theme}>
           <main className="content">
-            {/* <Box sx={{ width: '5/6', marginX: 'auto', height: '100%', height: { xs: "100%", md: "100vh" }, }}>
+            <Box sx={{ width: '5/6', marginX: 'auto', height: '100%', position: 'fixed', top: 0, height: { xs: "100%", md: "100vh" }, }}>
               {isDesktop && (
+                <DotGroup />
               )}
-            </Box> */}
-            <DotGroup />
+            </Box>
             {/* <Navbars /> */}
             <Navbar />
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/features" element={<Features />} />

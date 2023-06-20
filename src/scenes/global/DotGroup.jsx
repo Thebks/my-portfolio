@@ -1,5 +1,5 @@
 import React from 'react'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+// import { AnchorLink as Link } from "react-anchor-link-smooth-scroll";
 import useMediaQuery from "../../hooks/useMediaQuery"
 import { setMenuActive, toggleMenu } from './menuActiveLinkSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,7 +41,7 @@ const DotGroup = () => {
                     borderRadius: '50%',
                 }}
                 onClick={() => dispatch(setMenuActive("/"))}
-                smooth={true}
+                smooth="true"
             />
 
             {/*FEATURES*/}
@@ -55,7 +55,7 @@ const DotGroup = () => {
                     borderRadius: '50%',
                 }}
                 onClick={() => dispatch(setMenuActive("/features"))}
-                smooth={true}
+                smooth="true"
             />
 
             {/* CONTACTS */}
@@ -69,7 +69,8 @@ const DotGroup = () => {
                     borderRadius: '50%',
                 }}
                 onClick={() => dispatch(setMenuActive("/contact"))}
-                smooth={true}
+                smooth="true"
+
             />
             {/* PROJECTS */}
             <Box
@@ -82,13 +83,13 @@ const DotGroup = () => {
                     borderRadius: '50%',
                 }}
                 onClick={() => dispatch(setMenuActive("/projects"))}
-                smooth={true}
+                smooth="true"
             />
         </Box>
     )
 }
 
-export default DotGroup
+export default DotGroup;
 
 // import DotGroup from "./scenes/global/DotGroup"
 {/* <Box sx={{ width: '5/6', marginX: 'auto', height: '100%', height: { xs: "100%", md: "100vh" }, }}>
