@@ -1,35 +1,69 @@
 import React from 'react'
-import { Box, Typography } from '@mui/material'
-import useMediaQuery from '../../hooks/useMediaQuery'
+import { Grid, Typography, Box, Button, useTheme } from '@mui/material';
+import useMediaQuery from "../../hooks/useMediaQuery"
+import Image from 'mui-image'
 
 
-const Home = () => {
-    const isBigScreen = useMediaQuery("(min-width: 1060px)");
+
+function Home() {
+    const isAboveLargeScreen = useMediaQuery("(min-width: 1060px)");
+    const { palette } = useTheme();
+
     return (
-        <section>
-            <Box>
-                <Typography>HomeHomeHome</Typography>
-            </Box>
-        </section>
-    )
+        <Box sx={{ py: 10 }} component='section'>
+            <Grid container justifyContent="space-between" alignItems="center" spacing={2}>
+
+                {/* Image Section */}
+                <Grid xs={12} md={6} item>
+                    {isAboveLargeScreen ? (
+                        <Box sx={{
+                            position: 'relative', ml: 2,
+                            '&::before': {
+                                content: '""',
+                                position: 'absolute',
+                                top: '-20px',
+                                left: '-20px',
+                                zIndex: -1,
+                                width: '100%',
+                                maxWidth: '400px',
+                                height: '100%',
+                                border: '2px solid blue',
+                                borderRadius: '400px 400px 0 0'
+                            }
+                        }}>
+                            <Image
+                                alt='ppp'
+                                src={require('../../assets//profile-image.png')}
+                                sx={{
+                                    width: '100%',
+                                    maxWidth: '400px',
+                                    '&:hover': {
+                                        filter: 'saturate(200%)',
+                                        transition: 'duration 500ms',
+                                    },
+                                }}
+                            />
+                        </Box>
+                    ) : (
+                        <img
+                            alt="profile"
+                            src="assets/CryptDog.jpeg"
+                            sx={{
+                                width: '100%',
+                                maxWidth: '400px',
+                            }}
+                        />
+                    )}
+                </Grid>
+            </Grid>
+
+        </Box>
+    );
 }
 
-export default Home
+
+
+export default Home;
 
 
 
-{/* <Grid container spacing={2} direction="row" justifyContent="space-between" alignItems="center">
-<Grid item xs={12}>
-    <Grid item xs={6}>
-        <Box>
-            <Typography variant='h1'>
-                ijwnviwnovinwirvnwirvniwerjnviwnrviwrnviwrejnv
-            </Typography>
-            <Button variant="contained">Click here</Button>
-        </Box>
-    </Grid>
-    <Grid item xs={6}>
-        <Typography>wiuvbiwubviwubvriwueri</Typography>
-    </Grid>
-</Grid>
-</Grid> */}
