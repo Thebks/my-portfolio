@@ -1,6 +1,4 @@
 import React from 'react'
-// import { AnchorLink as Link } from "react-anchor-link-smooth-scroll";
-import useMediaQuery from "../../hooks/useMediaQuery"
 import { setMenuActive, toggleMenu } from './menuActiveLinkSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, useTheme } from '@mui/material';
@@ -9,9 +7,14 @@ import { Link } from "react-router-dom"
 const DotGroup = () => {
 
     const dispatch = useDispatch();
-    const isDesktop = useMediaQuery("(min-width: 1060px)");
     const { menuActive, menuToggled } = useSelector((state) => state.menuActiveLink);
     const { palette } = useTheme();
+
+
+    const handleClickRedux = (to) => {
+        dispatch(setMenuActive(to));
+    }
+
 
     const selectedStyles = {
         position: 'relative',
@@ -40,7 +43,7 @@ const DotGroup = () => {
                     height: 10,
                     borderRadius: '50%',
                 }}
-                onClick={() => dispatch(setMenuActive("/"))}
+                onClick={() => handleClickRedux("/")}
                 smooth="true"
             />
 
@@ -54,7 +57,7 @@ const DotGroup = () => {
                     height: '10px',
                     borderRadius: '50%',
                 }}
-                onClick={() => dispatch(setMenuActive("/features"))}
+                onClick={() => handleClickRedux("/features")}
                 smooth="true"
             />
 
@@ -68,10 +71,10 @@ const DotGroup = () => {
                     height: '10px',
                     borderRadius: '50%',
                 }}
-                onClick={() => dispatch(setMenuActive("/contact"))}
+                onClick={() => handleClickRedux("/contact")}
                 smooth="true"
-
             />
+
             {/* PROJECTS */}
             <Box
                 to="/projects"
@@ -82,18 +85,12 @@ const DotGroup = () => {
                     height: '10px',
                     borderRadius: '50%',
                 }}
-                onClick={() => dispatch(setMenuActive("/projects"))}
+                onClick={() => handleClickRedux("/projects")}
                 smooth="true"
             />
         </Box>
     )
 }
 
-export default DotGroup;
 
-// import DotGroup from "./scenes/global/DotGroup"
-{/* <Box sx={{ width: '5/6', marginX: 'auto', height: '100%', height: { xs: "100%", md: "100vh" }, }}>
-    {isDesktop &&(
-        <DotGroup/>
-    )}
-</Box> */}
+export default DotGroup;
