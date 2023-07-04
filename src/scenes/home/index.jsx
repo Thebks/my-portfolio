@@ -27,65 +27,51 @@ function Home() {
                             <Grid xs={12} md={6} item order={isAboveLargeScreen ? 1 : 0}>
 
                                 <Box sx={{
-                                    position: 'relative', ml: 2,
+                                    position: 'relative',
+                                    width: '360px',
+                                    height: '506px',
+                                    top: '-12px',
+                                    left: '365px',
+                                    '&:hover': {
+                                        transform: 'scale(1.01)',
+                                    },
                                     '&::before': {
                                         content: '""',
                                         position: 'absolute',
-                                        top: '-12px',
-                                        left: '365px',
+                                        top: 0,
+                                        left: 0,
                                         zIndex: 0,
                                         width: '100%',
-                                        maxWidth: '363px',
-                                        height: '510px',
+                                        height: '100%',
                                         border: '3px solid black',
                                         borderRadius: '150px 30px 30px 30px ',
                                         background: palette.green[500],
                                         boxShadow: '10px 10px 0px rgba(0, 0, 0, 1)',
-                                        overflow: 'hidden'
+                                        overflow: 'hidden',
                                     }
                                 }}>
-                                    <Box component="img"
-                                        alt='ppp'
+                                    <Box
+                                        component="img"
+                                        alt="ppp"
                                         src={require('../../assets/cryptoDog.jpeg')}
                                         sx={{
                                             position: 'relative',
-                                            top: '-8px',
-                                            left: '370px',
+                                            top: '-5px',
+                                            left: '175px',
+                                            transform: 'translateX(-50%)',
                                             objectFit: 'cover',
                                             width: '100%',
-                                            maxWidth: '350px',
+                                            height: '100%',
                                             transition: 'filter 0.5s ease-in-out',
                                             borderRadius: '150px 30px 30px 30px',
                                             border: '3px solid',
+                                            zIndex: 1,
                                             '&:hover': {
                                                 filter: 'saturate(200%)',
                                                 transitionDuration: '500ms',
-                                                transform: 'scale(1.01)',
                                             },
-
                                         }}
                                     />
-                                    {/* <Box
-                                        component="img"
-                                        alt='ppp'
-                                        src={require('../../assets/cryptoDog.jpeg')}
-                                        sx={{
-                                            position: 'relative',
-                                            top: '50%',
-                                            left: '50%',
-                                            objectFit: 'cover',
-                                            width: '100%',
-                                            maxWidth: '360px',
-                                            transition: 'filter 0.5s ease-in-out',
-                                            borderRadius: '150px 30px 30px 30px',
-                                            border: '3px solid',
-                                            '&:hover': {
-                                                filter: 'saturate(200%)',
-                                                transitionDuration: '500ms',
-                                                transform: 'scale(1.01)',
-                                            },
-                                        }}
-                                    /> */}
                                 </Box>
                             </Grid>
                         </>
@@ -109,7 +95,6 @@ function Home() {
                         <Box sx={{ ml: { md: 2 } }}>
                             {/* HEADINGS */}
                             <Box>
-
                                 <motion.div
                                     initial="hidden"
                                     whileInView="visible"
@@ -160,7 +145,7 @@ function Home() {
                     </Grid>
                 </>
             </Grid>
-        </Box >
+        </Box>
     );
 }
 

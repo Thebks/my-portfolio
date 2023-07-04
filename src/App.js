@@ -4,8 +4,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createTheme } from '@mui/material/styles';
 import { themeSettings } from "./theme";
 import Navbar from "./scenes/global/Navbar"
-// import Navbars from "./scenes/global/Navbars"
-// import DotGroup from "./scenes/global/DotGroup"
 import DotGroup from "./scenes/global/DotGroup"
 import Home from "./scenes/home";
 import Features from "./scenes/features";
