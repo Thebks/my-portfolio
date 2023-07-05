@@ -6,16 +6,9 @@ import { motion } from 'framer-motion';
 
 
 function Home() {
-    const isAboveLargeScreen = useMediaQuery("(min-width: 768px)");
+    const isAboveLargeScreen = useMediaQuery("(min-width: 1060px)");
     const { palette } = useTheme();
 
-
-    // TESTCODE
-    /* Subtract */
-
-
-
-    // TESTCODE
 
     return (
         <Box sx={{ py: 10 }} component='section'>
@@ -78,13 +71,16 @@ function Home() {
                     ) : (
                         <>
                             <Grid xs={12} md={6} item >
-                                <Image
+                                <Box
+                                    component="img"
                                     alt="profile"
                                     src={require('../../assets/cryptoDog.jpeg')}
                                     sx={{
                                         width: '100%',
                                         maxWidth: '400px',
-                                        borderRadius: '200px 200px 0 0',
+                                        border: '5px solid black',
+                                        overflow: 'hidden',
+                                        borderRadius: '150px 30px 30px 30px',
                                     }}
                                 />
                             </Grid>
@@ -105,39 +101,49 @@ function Home() {
                                         visible: { opacity: 1, x: 0 },
                                     }}>
                                     <Typography
-                                        variant="h3"
-                                        component="p"
+                                        variant="h1"
                                         align="center"
                                         sx={{
-                                            fontSize: '6xl',
-                                            fontFamily: 'Playfair Display, serif',
-                                            position: 'relative',
+                                            fontSize: '6rem',
+                                            fontFamily: 'Playfair Display',
                                             zIndex: 10,
-                                            '& span': {
-                                                position: 'relative',
-                                                zIndex: 20,
-                                                color: palette.primary[500],
-                                                fontWeight: 'bold',
+                                            textAlign: { md: 'start' },
+                                            position: 'relative',
+                                        }}
+                                    >
+                                        The{' '}
+                                        <Typography
+                                            component="span"
+                                            variant="h1"
+                                            fontWeight="bold"
+                                            sx={{
+                                                position: { xs: 'relative' },
+                                                color: palette.green[500],
+                                                zIndex: { xs: 20 },
                                                 '&::before': {
-                                                    content: '""',
+                                                    content: "''",
                                                     position: 'absolute',
                                                     left: '-25px',
                                                     top: '-70px',
                                                     zIndex: -1,
-                                                    color: 'brush',
-                                                    borderRadius: '0',
                                                 },
-                                            },
-                                        }}>The <span>Big</span>  Hello</Typography>
+                                            }}
+                                        >
+                                            Hello
+                                        </Typography>
+                                    </Typography>
+
                                     <Typography
-                                        variant="body1"
+                                        variant="h2"
                                         align="center"
                                         sx={{
-                                            mt: 2,
-                                            fontSize: 'sm',
+                                            mt: 10,
+                                            mb: 7,
+                                            fontSize: '0.875rem',
+                                            textAlign: { md: 'start' },
                                         }}
                                     >
-                                        Adipiscing arcu, in aliquam fringilla cursus. Elit arcu elementum viverra malesuada sem ac faucibus dolor. Sagittis scelerisque.
+                                        Hello, I'm Bilal Khan, a passionate and dedicated web developer. <br />  With 2 years of experience in the industry, I have honed my skills in creating dynamic and user-friendly websites.
                                     </Typography>
                                 </motion.div>
                             </Box>
