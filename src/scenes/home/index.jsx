@@ -1,9 +1,13 @@
 import React from 'react'
 import { Grid, Typography, Box, Button, useTheme } from '@mui/material';
+import { Link, NavLink } from 'react-router-dom'
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Image from 'mui-image'
 import { motion } from 'framer-motion';
-
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import EmailIcon from '@mui/icons-material/Email';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 function Home() {
     const isAboveLargeScreen = useMediaQuery("(min-width: 1060px)");
@@ -11,14 +15,13 @@ function Home() {
 
 
     return (
-        <Box sx={{ py: 10 }} component='section'>
+        <Box sx={{ py: 10, border: '3px solid black', width: '100vw', height: '100vh' }} component='section'>
             <Grid container justifyContent="space-between" alignItems="center" spacing={2} border="2px solid black">
                 <>
                     {isAboveLargeScreen ? (
                         <>
                             {/* Image Section */}
                             <Grid xs={12} md={6} item order={isAboveLargeScreen ? 1 : 0}>
-
                                 <Box sx={{
                                     position: 'relative',
                                     width: '360px',
@@ -146,12 +149,127 @@ function Home() {
                                         Hello, I'm Bilal Khan, a passionate and dedicated web developer. <br />  With 2 years of experience in the industry, I have honed my skills in creating dynamic and user-friendly websites.
                                     </Typography>
                                 </motion.div>
+
+                                {/* CALL TO ACTIONS */}
+                                <Box
+                                    sx={{
+                                        mt: 5,
+                                        display: 'flex',
+                                        flexDirection: { xs: 'column', md: 'start' },
+                                        justifyContent: { xs: 'center', md: 'start' },
+                                        flex: '1 1 auto',
+                                        gap: 2
+                                    }}
+                                >
+                                    <motion.div
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        viewport={{ once: true, amount: 0.5 }}
+                                        transition={{ delay: 0.2, duration: 0.5 }}
+                                        variants={{
+                                            hidden: { opacity: 0, x: -50 },
+                                            visible: { opacity: 1, x: 0 },
+                                        }}
+                                    >
+                                        <Box sx={{ mb: { xs: 2, md: 0 } }}>
+                                            <Button component={Link} onClick={() => console.log("Button Clicked")}
+                                                sx={{
+                                                    background: palette.secondary[500],
+                                                    color: palette.green[900],
+                                                    borderRadius: '4px',
+                                                    padding: '8px 16px',
+                                                    fontWeight: 'bold',
+                                                    textDecoration: 'none',
+                                                    transition: 'background-color 0.3s ease',
+                                                    '&:hover': {
+                                                        backgroundColor: '#0044FF',
+                                                        color: '#FFFFFF',
+                                                    },
+                                                }}>
+                                                <Typography variant="body1">Contact Me</Typography>
+                                            </Button>
+                                        </Box>
+                                    </motion.div>
+
+                                    <motion.div
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        viewport={{ once: true, amount: 0.5 }}
+                                        transition={{ delay: 0.4, duration: 0.5 }}
+                                        variants={{
+                                            hidden: { opacity: 0, x: -50 },
+                                            visible: { opacity: 1, x: 0 },
+                                        }}
+                                    >
+                                        {/* SSOCIAL MEDIA iCONS */}
+                                        <Box sx={{ display: 'flex', gap: '16px', alignItems: "center" }}>
+                                            {/* TWITTER */}
+                                            <Box
+                                                sx={{
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    border: '2px solid black',
+                                                    borderRadius: '50%',
+                                                    width: 50,
+                                                    height: 50,
+                                                    mt: 2,
+                                                    backgroundColor: palette.purple[500]
+                                                }}
+                                            >
+                                                <TwitterIcon sx={{
+                                                    color: palette.black[400],
+                                                    fontSize: 32
+                                                }} />
+                                            </Box>
+                                            {/* GITHUB */}
+                                            <Box
+                                                sx={{
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    border: '2px solid black',
+                                                    borderRadius: '50%',
+                                                    width: 50,
+                                                    height: 50,
+                                                    mt: 2,
+                                                    backgroundColor: palette.purple[500]
+                                                }}
+                                            >
+                                                <GitHubIcon sx={{
+                                                    color: palette.black[500],
+                                                    fontSize: 32
+                                                }} />
+                                            </Box>
+                                            {/* LINKEDIN iCON */}
+                                            <Box
+                                                sx={{
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    border: '2px solid black',
+                                                    borderRadius: '50%',
+                                                    width: 50,
+                                                    height: 50,
+                                                    mt: 2,
+                                                    backgroundColor: palette.purple[500]
+                                                }}
+                                            >
+                                                <LinkedInIcon sx={{
+                                                    color: palette.black[500],
+                                                    fontSize: 32
+                                                }} />
+                                            </Box>
+                                        </Box>
+                                    </motion.div>
+                                </Box>
+
                             </Box>
                         </Box>
                     </Grid>
                 </>
-            </Grid>
-        </Box>
+            </Grid >
+        </Box >
     );
 }
 

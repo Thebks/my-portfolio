@@ -111,6 +111,15 @@ export const themeSettings = {
         green: {
             ...tokens.green,
         },
+        blue: {
+            ...tokens.blue,
+        },
+        orange: {
+            ...tokens.orange,
+        },
+        purple: {
+            ...tokens.purple,
+        },
         black: {
             ...tokens.black,
         },
