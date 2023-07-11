@@ -15,13 +15,13 @@ function Home() {
 
 
     return (
-        <Box sx={{ py: 10, border: '3px solid black', width: '100vw', height: '100vh' }} component='section'>
+        <Box sx={{ py: 10, border: '8px solid green', width: '100vw', height: '100vh' }} component='section'>
             <Grid container justifyContent="space-between" alignItems="center" spacing={2} border="2px solid black">
                 <>
                     {isAboveLargeScreen ? (
                         <>
                             {/* Image Section */}
-                            <Grid xs={12} md={6} item order={isAboveLargeScreen ? 1 : 0}>
+                            <Grid xs={12} md={6} item order={isAboveLargeScreen ? 1 : 0} borderLeft="5px solid black" backgroundColor={palette.green[500]}>
                                 <Box sx={{
                                     position: 'relative',
                                     width: '360px',
@@ -29,7 +29,8 @@ function Home() {
                                     top: '-12px',
                                     left: '365px',
                                     '&:hover': {
-                                        transform: 'scale(1.01)',
+                                        transform: 'translate(-4px, -4px)',
+                                        transition: ' 0.1s ease',
                                     },
                                     '&::before': {
                                         content: '""',
@@ -39,10 +40,10 @@ function Home() {
                                         zIndex: 0,
                                         width: '100%',
                                         height: '100%',
-                                        border: '3px solid black',
+                                        border: `3px solid ${palette.black[900]}`,
                                         borderRadius: '150px 30px 30px 30px ',
                                         background: palette.green[500],
-                                        boxShadow: '10px 10px 0px rgba(0, 0, 0, 1)',
+                                        boxShadow: `10px 10px 0px ${palette.black[900]}`,
                                         overflow: 'hidden',
                                     }
                                 }}>
@@ -65,6 +66,8 @@ function Home() {
                                             '&:hover': {
                                                 filter: 'saturate(200%)',
                                                 transitionDuration: '500ms',
+                                                boxShadow: `10px 10px 0px ${palette.black[900]}`,
+
                                             },
                                         }}
                                     />
@@ -90,7 +93,7 @@ function Home() {
                         </>
                     )}
                     {/* MAIN TEXT */}
-                    <Grid item xs={12} md={6} order={isAboveLargeScreen ? 0 : 1}>
+                    <Grid item xs={12} md={6} order={isAboveLargeScreen ? 0 : 1} border="5px solid black" >
                         <Box sx={{ ml: { md: 2 } }}>
                             {/* HEADINGS */}
                             <Box>
@@ -170,23 +173,30 @@ function Home() {
                                             hidden: { opacity: 0, x: -50 },
                                             visible: { opacity: 1, x: 0 },
                                         }}
+                                        style={{
+                                            width: 180, // Adjust the width value as needed
+                                        }}
                                     >
                                         <Box sx={{ mb: { xs: 2, md: 0 } }}>
                                             <Button component={Link} onClick={() => console.log("Button Clicked")}
                                                 sx={{
                                                     background: palette.secondary[500],
-                                                    color: palette.green[900],
+                                                    // color: palette.green[900],
                                                     borderRadius: '4px',
-                                                    padding: '8px 16px',
+                                                    padding: '14px 26px',
                                                     fontWeight: 'bold',
                                                     textDecoration: 'none',
-                                                    transition: 'background-color 0.3s ease',
+                                                    transition: ' 0.1s ease',
+                                                    boxShadow: `5px 6px 0px 2px ${palette.black[900]}`,
                                                     '&:hover': {
-                                                        backgroundColor: '#0044FF',
-                                                        color: '#FFFFFF',
+                                                        outline: `2px solid ${palette.black[500]}`,
+                                                        boxShadow: `3px 4px 0px 2px ${palette.black[500]}`,
+                                                        background: '#FFFFFF',
+                                                        // textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',   
+                                                        transform: 'translate(-4px, -4px)'
                                                     },
                                                 }}>
-                                                <Typography variant="body1">Contact Me</Typography>
+                                                <Typography variant="h4" color={palette.black[900]}>Contact Me</Typography>
                                             </Button>
                                         </Box>
                                     </motion.div>
@@ -201,7 +211,7 @@ function Home() {
                                             visible: { opacity: 1, x: 0 },
                                         }}
                                     >
-                                        {/* SSOCIAL MEDIA iCONS */}
+                                        {/* SOCIAL MEDIA ICONS */}
                                         <Box sx={{ display: 'flex', gap: '16px', alignItems: "center" }}>
                                             {/* TWITTER */}
                                             <Box
@@ -214,12 +224,21 @@ function Home() {
                                                     width: 50,
                                                     height: 50,
                                                     mt: 2,
-                                                    backgroundColor: palette.purple[500]
+                                                    backgroundColor: palette.purple[500],
+                                                    boxShadow: `2px 3px 0px 2px ${palette.black[900]}`,
+                                                    transition: ' 0.1s ease',
+                                                    '&:hover': {
+                                                        outline: `1px solid ${palette.black[500]}`,
+                                                        boxShadow: `1px 2px 0px 2px ${palette.black[500]}`,
+                                                        background: '#FFFFFF',
+                                                        // textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',   
+                                                        transform: 'translate(-4px, -4px)'
+                                                    }
                                                 }}
                                             >
                                                 <TwitterIcon sx={{
                                                     color: palette.black[400],
-                                                    fontSize: 32
+                                                    fontSize: 32,
                                                 }} />
                                             </Box>
                                             {/* GITHUB */}
@@ -233,7 +252,16 @@ function Home() {
                                                     width: 50,
                                                     height: 50,
                                                     mt: 2,
-                                                    backgroundColor: palette.purple[500]
+                                                    backgroundColor: palette.purple[500],
+                                                    boxShadow: `2px 3px 0px 2px ${palette.black[900]}`,
+                                                    transition: ' 0.1s ease',
+                                                    '&:hover': {
+                                                        outline: `1px solid ${palette.black[500]}`,
+                                                        boxShadow: `1px 2px 0px 2px ${palette.black[500]}`,
+                                                        background: '#FFFFFF',
+                                                        // textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',   
+                                                        transform: 'translate(-4px, -4px)'
+                                                    }
                                                 }}
                                             >
                                                 <GitHubIcon sx={{
@@ -252,7 +280,16 @@ function Home() {
                                                     width: 50,
                                                     height: 50,
                                                     mt: 2,
-                                                    backgroundColor: palette.purple[500]
+                                                    backgroundColor: palette.purple[500],
+                                                    boxShadow: `2px 3px 0px 2px ${palette.black[900]}`,
+                                                    transition: ' 0.1s ease',
+                                                    '&:hover': {
+                                                        outline: `1px solid ${palette.black[500]}`,
+                                                        boxShadow: `1px 2px 0px 2px ${palette.black[500]}`,
+                                                        background: '#FFFFFF',
+                                                        // textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',   
+                                                        transform: 'translate(-4px, -4px)'
+                                                    }
                                                 }}
                                             >
                                                 <LinkedInIcon sx={{
@@ -268,8 +305,8 @@ function Home() {
                         </Box>
                     </Grid>
                 </>
-            </Grid >
-        </Box >
+            </Grid>
+        </Box>
     );
 }
 

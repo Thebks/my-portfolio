@@ -54,6 +54,7 @@ const Navbar = () => {
                                         borderRadius: menuActive === '/' ? '30px' : '0',
                                         border: menuActive === '/' ? `1px solid ${palette.black[500]}` : 'none',
                                         backgroundColor: menuActive === '/' ? '#FFFFFF' : 'inherit',
+                                        transition: '50ms ease',    //WILL WORK ON TRANSITION LATER
                                         '&:hover': {
                                             border: '3px solid #000000',
                                             boxShadow: '3px 4px 0px 2px #000000',
