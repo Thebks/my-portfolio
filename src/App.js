@@ -5,8 +5,8 @@ import { createTheme } from '@mui/material/styles';
 import { themeSettings } from "./theme";
 import Navbar from "./scenes/global/Navbar"
 import DotGroup from "./scenes/global/DotGroup"
-import Home from "./scenes/home";
-// import Homes from "./scenes/home/Homes";
+// import Home from "./scenes/home";
+import Homes from "./scenes/home/Homes";
 import Features from "./scenes/features";
 import { Box } from "@mui/material";
 import useMediaQuery from "./hooks/useMediaQuery"
@@ -42,8 +42,8 @@ const App = () => {
             <Navbar />
             <ScrollToTop />
             <Routes>
-              {/* <Route path="/" element={<Homes />} /> */}
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Homes />} />
+              {/* <Route path="/" element={<Home />} /> */}
               <Route path="/features" element={<Features />} />
             </Routes>
           </main>

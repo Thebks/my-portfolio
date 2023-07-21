@@ -7,7 +7,7 @@ import SocialMedia from '../../components/SocialMedia';
 import BoxDesign from '../../components/BoxDesign';
 import RoundDesign from '../../components/RoundDesign';
 
-function Home() {
+function Homes() {
     const isAboveLargeScreen = useMediaQuery("(min-width: 1060px)");
     const { palette } = useTheme();
 
@@ -159,42 +159,46 @@ function Home() {
                                             zIndex: 0,
                                             width: '100%',
                                             height: '100%',
+                                            background: 'radial-gradient(circle at 80% 70%,transparent 29%,red 30%)',
                                             border: `3px solid ${palette.black[900]}`,
                                             borderRadius: '150px 30px 30px 30px ',
                                             boxShadow: `10px 10px 0px ${palette.black[900]}`,
                                             overflow: 'hidden',
                                         }
                                     }}>
+                                        <Box sx={{ width: '400px', height: '100px', transform: 'rotate(-45deg)', transformOrigin: '0 0', background: '#D9D9D9' }} />
                                         <Box sx={{ position: 'absolute', left: '260px', top: '-90px' }}>
                                             <BoxDesign />
                                         </Box>
                                         <Box sx={{ position: 'absolute', left: '-100px', top: '410px' }}>
                                             <BoxDesign />
                                         </Box>
-                                        <Box
-                                            component="img"
-                                            alt="ppp"
-                                            src={require('../../assets/cryptoDog.jpeg')}
-                                            sx={{
-                                                objectFit: 'contain',
-                                                position: 'relative',
-                                                top: '-5px',
-                                                left: '175px',
-                                                transform: 'translateX(-50%)',
-                                                objectFit: 'cover',
-                                                width: '100%',
-                                                height: '100%',
-                                                transition: 'filter 0.5s ease-in-out',
-                                                borderRadius: '150px 30px 30px 30px',
-                                                border: '3px solid',
-                                                zIndex: 1,
-                                                '&:hover': {
-                                                    filter: 'saturate(200%)',
-                                                    transitionDuration: '500ms',
-                                                    boxShadow: `10px 10px 0px ${palette.black[900]}`,
-                                                },
-                                            }}
-                                        />
+
+
+                                        {/* <Box
+                                        component="img"
+                                        alt="ppp"
+                                        src={require('../../assets/cryptoDog.jpeg')}
+                                        sx={{
+                                            objectFit: 'contain',
+                                            position: 'relative',
+                                            top: '-5px',
+                                            left: '175px',
+                                            transform: 'translateX(-50%)',
+                                            objectFit: 'cover',
+                                            width: '100%',
+                                            height: '100%',
+                                            transition: 'filter 0.5s ease-in-out',
+                                            borderRadius: '150px 30px 30px 30px',
+                                            border: '3px solid',
+                                            zIndex: 1,
+                                            '&:hover': {
+                                                filter: 'saturate(200%)',
+                                                transitionDuration: '500ms',
+                                                boxShadow: `10px 10px 0px ${palette.black[900]}`,
+                                            },
+                                        }}
+                                    /> */}
                                     </Box>
                                 </Box>
                             </Box>
@@ -242,12 +246,16 @@ function Home() {
                         </Grid>
                     )}
                 </Grid>
-            </Box>
+            </Box >
+            <Box>
+                <BoxDesign />
+                <RoundDesign />
 
+            </Box>
 
         </>
     );
 }
 
 
-export default Home;
+export default Homes;
