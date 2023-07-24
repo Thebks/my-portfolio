@@ -8,8 +8,11 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const SocialMedia = () => {
     const { palette } = useTheme();
+
+    const colors = { Tealism: '#8CE6DB' }
     return (
         <Box sx={{ display: 'flex', gap: '16px', alignItems: "center", marginTop: 5 }}>
+            {/* TWITTER */}
             <Link
                 sx={{
                     display: 'flex',
@@ -20,20 +23,20 @@ const SocialMedia = () => {
                     width: 50,
                     height: 50,
                     mt: 2,
-                    backgroundColor: palette.primary[500],
+                    backgroundColor: colors.Tealism,
                     boxShadow: `2px 3px 0px 2px ${palette.black[900]}`,
                     transition: ' 0.1s ease',
                     '&:hover': {
                         outline: `1px solid ${palette.black[500]}`,
                         boxShadow: `1px 2px 0px 2px ${palette.black[500]}`,
-                        background: '#FFFFFF',
+                        backgroundColor: '#FFFFFF',
                         // textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',   
                         transform: 'translate(-4px, -4px)'
                     }
                 }}
             >
                 <TwitterIcon sx={{
-                    color: palette.black[400],
+                    color: palette.black[500],
                     fontSize: 32,
                 }} />
             </Link>
@@ -48,7 +51,7 @@ const SocialMedia = () => {
                     width: 50,
                     height: 50,
                     mt: 2,
-                    backgroundColor: palette.primary[500],
+                    backgroundColor: colors.Tealism,
                     boxShadow: `2px 3px 0px 2px ${palette.black[900]}`,
                     transition: ' 0.1s ease',
                     '&:hover': {
@@ -76,7 +79,7 @@ const SocialMedia = () => {
                     width: 50,
                     height: 50,
                     mt: 2,
-                    backgroundColor: palette.primary[500],
+                    backgroundColor: colors.Tealism,
                     boxShadow: `2px 3px 0px 2px ${palette.black[900]}`,
                     transition: ' 0.1s ease',
                     '&:hover': {
