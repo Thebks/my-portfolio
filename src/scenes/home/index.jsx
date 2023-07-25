@@ -230,36 +230,67 @@ function Home() {
                                 <Box sx={{ height: '100%', minHeight: '22rem', alignItems: 'center', padding: '6.5vw', }}>
                                     <Box sx={{
                                         position: 'relative',
+                                        zIndex: 0,
                                         width: '360px',
                                         height: '506px',
-                                        //     '&:hover': {
-                                        //         transform: 'translate(-4px, -4px)',
-                                        //         transition: ' 0.1s ease',
-                                        // },
+                                        borderRadius: '0 30px 30px 30px',
+                                        boxShadow: `10px 10px 0px ${palette.black[900]}`,
+                                        margin: 'auto',
                                         '&::before': {
-                                            content: '""',
                                             position: 'absolute',
-                                            zIndex: 0,
-                                            width: '100%',
-                                            height: '100%',
+                                            inset: 0,
+                                            zIndex: -10,
                                             border: `3px solid ${palette.black[900]}`,
-                                            borderRadius: '150px 30px 30px 30px ',
-                                            boxShadow: `10px 10px 0px ${palette.black[900]}`,
-                                            overflow: 'hidden',
-                                        }
+                                            borderRadius: 'inherit',
+                                            content: '""',
+                                            clipPath: 'polygon(100% 0, 100% 100%, 0 100%, 0 150px, 150px 0)',
+                                            background: 'linear-gradient(135deg, black 50%,transparent 50%) no-repeat top left / 149px 149px'
+                                        },
                                     }}>
-                                        <Box
-                                            component="img"
-                                            alt="profile"
-                                            src={require('../../assets/cryptoDog.jpeg')}
-                                            sx={{
-                                                width: '100%',
-                                                maxWidth: '400px',
-                                                border: '5px solid black',
-                                                overflow: 'hidden',
-                                                borderRadius: '150px 30px 30px 30px',
-                                            }}
-                                        />
+                                        <Box sx={{
+                                            position: 'relative',
+                                            zIndex: 0,
+                                            top: 20,
+                                            left: -20,
+                                            width: '390px',
+                                            height: '506px',
+                                            borderRadius: '0 30px 30px 30px',
+                                            '&::before': {
+                                                position: 'absolute',
+                                                inset: 0,
+                                                zIndex: -10,
+                                                borderLeft: `3px solid ${palette.black[900]}`,
+                                                borderRadius: 'inherit',
+                                                content: '""',
+                                                clipPath: 'polygon(100% 0, 100% 100%, 0 100%, 0 150px, 150px 0)',
+                                                background: 'linear-gradient(135deg, black 50%,transparent 50%) no-repeat top left / 151px 152px'
+                                            }
+                                        }}>
+                                            <Box
+                                                component="img"
+                                                alt="profile"
+                                                src={require('../../assets/cryptoDog.jpeg')}
+                                                sx={{
+                                                    objectFit: 'fill',
+                                                    position: 'relative',
+                                                    top: 4,
+                                                    left: 180,
+                                                    transform: 'translateX(-50%)',
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    maxWidth: '360px',
+                                                    maxHeight: '506px',
+                                                    transition: 'filter 0.5s ease-in-out',
+                                                    borderRadius: '150px 30px 30px 30px',
+                                                    border: `3px solid ${palette.black[900]}`,
+                                                    bordertop: 0,
+                                                    zIndex: 1,
+                                                    overflow: 'hidden',
+                                                    clipPath: 'polygon(100% 0, 100% 100%, 0 100%, 0 150px, 150px 0)',
+                                                    background: 'linear-gradient(135deg, transparent 50%,transparent 50%) no-repeat bottom left/ 149px 149px',
+                                                }}
+                                            />
+                                        </Box>
                                     </Box>
                                 </Box>
                             </Box>
@@ -267,8 +298,6 @@ function Home() {
                     )}
                 </Grid>
             </Box>
-
-
         </>
     );
 }
